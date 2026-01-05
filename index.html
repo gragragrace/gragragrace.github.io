@@ -9,91 +9,37 @@
 <body>
 
     <nav class="navbar">
-        <div class="logo">G.W.</div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#research">Research</a></li>
-            <li><a href="#art">Art</a></li>
-        </ul>
+        <div class="nav-content">
+            <div class="logo">G.W.</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#art">Art</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <main class="container">
-        <header id="home" class="hero">
-            <h1>Grace Wang</h1>
-            <p class="email">Gracewng@stanford.edu</p>
-            <div class="bio">
-                <p>Hi! I'm a 1st year Ph.D. student in Computer Science at <strong>Stanford University</strong>, fortunate to be working with Professors James Landay and Diyi Yang. I explore the intersections of Human-Centered AI, Art, and creativity.</p>
+    <main class="centering-wrapper">
+        <div class="container">
+            <header id="home" class="hero-section">
+                <div class="image-column">
+                    <img src="images/artworks/SelfPortrait.png" alt="Grace Wang Illustration" class="profile-img">
+                </div>
                 
-                <p>Previously, I studied Computer Science and Art, Theory, Practice (Fine Arts) at <strong>Northwestern University</strong>, where I've had the pleasure of working with Haoqi Zhang, Matthew Kay, Duri Long, and Brian Magerko. I'm trained in HCI systems design research for 2.5 years in the DTR program.</p>
-                
-                <p>I spend my spare time drawing, performing with my choir, and exploring ways to enjoy life creatively. My special skills include skateboarding, making zines, and socializing with local bar owners for free sake in Japan.</p>
-            </div>
-        </header>
-
-        <section id="art">
-            <h2>Artworks</h2>
-            <p class="statement-link"><a href="#">Read a zine that summarizes my artist statement and works ↗</a></p>
-            <div class="grid">
-                <div class="card">
-                    <div class="placeholder-img">Image: Wayfarer</div>
-                    <h3>Wayfarer</h3>
-                    <p>Illustration, 2023</p>
+                <div class="content-column">
+                    <h1>Grace Wang</h1>
+                    <div class="bio">
+                        <p>Hi! I'm a <strong>1st year Ph.D. student in Computer Science at Stanford University</strong>, fortunate to be working with Professors <a href="https://www.landay.org/">James Landay</a> and <a href="https://cs.stanford.edu/~diyiy/">Diyi Yang</a>. I explore the intersections of Human-Centered AI, Art, and creativity.</p>
+                        
+                        <p>Previously, I studied <strong>Computer Science</strong> and <strong>Art, Theory, Practice (Fine Arts)</strong> at Northwestern University, where I've had the pleasure of working with <a href="https://eecs.northwestern.edu/~hq/">Haoqi Zhang</a>, <a href="https://www.mjskay.com/">Matthew Kay</a>, <a href="https://www.durilong.com/">Duri Long</a>, and <a href="https://sites.google.com/view/magerko/home">Brian Magerko</a>. I'm trained in HCI systems design research in the <a href="https://dtr.northwestern.edu/">DTR program</a>.</p>
+                        
+                        <p>I spend my spare time drawing, performing with my choir, and <a href="#">exploring ways to enjoy life creatively</a>. My special skills include skateboarding, making zines, and socializing with local bar owners for free sake in Japan.</p>
+                    </div>
+                    <p class="email-bottom">Gracewng@stanford.edu</p>
                 </div>
-            </div>
-        </section>
-
-        <section id="research">
-            <h2>Research Projects</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>OSADE</h3>
-                    <p>OSADE is a mentorship application that supports coaching of self-regulatory skills, ranging from metacognitive to emotional regulation, in Problem-Based Learning classrooms.</p>
-                </div>
-                <div class="card">
-                    <h3>Knowledge Net</h3>
-                    <p>A collaborative tabletop museum exhibit that teaches middle schoolers about knowledge representations in semantic networks.</p>
-                </div>
-                <div class="card">
-                    <h3>Kernel Quest</h3>
-                    <p>A hands-on, interactive activity that teaches middle school students how CNNs use kernels to detect visual features, using polarizer film sheets to identify cartoon monsters!</p>
-                </div>
-                <div class="card">
-                    <h3>LIVE-ELEX</h3>
-                    <p>A live election data display deployed during the 2024 Presidential Election that fosters voter trust with novel visualizations and prediction models. Deployed live, evaluated in a national experiment.</p>
-                </div>
-                <div class="card">
-                    <h3>Qualitative Coding with LLMs</h3>
-                    <p>LLM-Qual is a theory-informed computational method to systematically evaluate inductive coding results using Code Space.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="funsies">
-            <h2>Funsies</h2>
-            <div class="grid">
-                <div class="card fun">
-                    <h3>ColorCoding Move-in</h3>
-                    <p>A series of art and software I developed to visualize my loved-one's comfort level with different parts of my apartment when moving in.</p>
-                </div>
-                <div class="card fun">
-                    <h3>Hand-Tracking Doodle</h3>
-                    <p>Make abstract art by moving your hand in front of the camera—low-stakes hehe</p>
-                </div>
-                <div class="card fun">
-                    <h3>Casual Pollock</h3>
-                    <p>Pause brain and just make abstract art!</p>
-                </div>
-                <div class="card fun">
-                    <h3>WebGL Projects</h3>
-                    <p>Fun silly animations</p>
-                </div>
-            </div>
-        </section>
+            </header>
+        </div>
     </main>
-
-    <footer>
-        <p>Grace Wang</p>
-    </footer>
 
 </body>
 </html>
