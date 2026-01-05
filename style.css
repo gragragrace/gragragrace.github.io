@@ -139,22 +139,54 @@ h1 {
     font-size: 16px;
 }
 
-/* MOBILE RESPONSIVE */
+/* MOBILE RESPONSIVE REFINEMENTS */
 @media (max-width: 950px) {
-    .nav-content, .container {
-        width: 90%; /* More space on mobile */
+    /* Header adjustments */
+    .nav-content {
+        width: 92%; /* Give more edge-to-edge room for the nav on mobile */
+    }
+    
+    .nav-links {
+        gap: 12px; /* Reduce spacing between tabs so they don't look spread out */
+    }
+
+    /* Vertical centering adjustment */
+    .centering-wrapper {
+        justify-content: flex-start; /* Don't force center on mobile to allow for scrolling */
+        padding-top: 30px; /* Space between header line and the image */
+        min-height: auto;
+    }
+
+    .container {
+        width: 86%; /* Reduce right margin/centering the content block */
     }
     
     .hero-section {
         flex-direction: column;
-        gap: 30px;
+        gap: 20px; /* Gap between image and "Grace Wang" text */
     }
 
+    /* Image Scaling */
     .image-column {
-        width: 100%;
+        width: 70%; /* Makes image smaller on phone (was 100%) */
+        margin: 0 auto; /* Keeps image centered */
     }
 
+    /* Text Proportion Adjustments */
     h1 {
-        font-size: 42px;
+        font-size: 32px; /* 50% smaller than desktop 64px */
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .bio p {
+        font-size: 15.3px; /* 10% smaller than desktop 17px */
+        margin-right: 0; /* Fixes the "right margin too big" issue */
+        text-align: left;
+    }
+
+    .email-bottom {
+        font-size: 14px;
+        margin-top: 15px;
     }
 }
