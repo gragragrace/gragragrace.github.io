@@ -141,14 +141,31 @@ h1 {
 
 /* MOBILE RESPONSIVE REFINEMENTS */
 @media (max-width: 950px) {
+    .logo {
+    font-size: 18px;
+    font-weight: 100;
+    color: #000;
+    letter-spacing: -0.5px; /* Tightened horizontal spacing */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
     /* Header adjustments */
     .nav-content {
-        width: 92%; /* Give more edge-to-edge room for the nav on mobile */
+        width: 88%; /* Give more edge-to-edge room for the nav on mobile */
     }
     
     .nav-links {
-        gap: 12px; /* Reduce spacing between tabs so they don't look spread out */
+        gap: 10px; /* Reduce spacing between tabs so they don't look spread out */
     }
+
+    .nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-size: 13px; /* 30% smaller than previous 17px */
+    letter-spacing: -0.3px;
+    font-weight: 300;
+    text-transform: none;
+}
 
     /* Vertical centering adjustment */
     .centering-wrapper {
@@ -174,19 +191,20 @@ h1 {
 
     /* Text Proportion Adjustments */
     h1 {
-        font-size: 32px; /* 50% smaller than desktop 64px */
+        font-size: 22px; /* 50% smaller than desktop 64px */
         text-align: left;
         margin-bottom: 10px;
     }
 
     .bio p {
-        font-size: 15.3px; /* 10% smaller than desktop 17px */
+        font-size: 14.2px; /* 10% smaller than desktop 17px */
         margin-right: 0; /* Fixes the "right margin too big" issue */
         text-align: left;
+        line-height: 1.1;
     }
 
     .email-bottom {
-        font-size: 14px;
+        font-size: 14.2px;
         margin-top: 15px;
     }
 }
