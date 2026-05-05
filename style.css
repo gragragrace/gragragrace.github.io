@@ -257,15 +257,34 @@ h1 {
 
 @media (max-width: 950px) {
     .research-container {
-        width: 86%;
+        width: 100%;
+        padding: 0 7%;
     }
 
     .research-wrapper {
         padding-top: 30px;
     }
 
+    .research-list {
+        gap: 10px;
+    }
+
     .paper p {
         font-size: 13.5px;
+        line-height: 1.2;
+    }
+
+    .paper {
+        gap: 1px;
+    }
+
+    .paper a {
+        color: var(--text-black) !important;
+        text-decoration: underline !important;
+        text-decoration-color: #aed3ff !important;
+        text-decoration-thickness: 2px !important;
+        text-decoration-skip-ink: none !important;
+        text-underline-offset: 3px !important;
     }
 }
 
