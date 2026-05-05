@@ -210,6 +210,65 @@ h1 {
     }
 }
 
+/* --- RESEARCH PAGE SPECIFIC STYLES --- */
+
+.research-wrapper {
+    justify-content: flex-start;
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+
+.research-container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.research-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.paper {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.paper p {
+    font-size: 15px;
+    line-height: 1.35;
+    color: #000;
+    margin: 0;
+}
+
+.authors {
+    color: #888 !important;
+}
+
+.paper a {
+    color: var(--text-black);
+    text-decoration: underline;
+    text-decoration-color: #aed3ff;
+    text-decoration-thickness: 2px;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 3px;
+}
+
+@media (max-width: 950px) {
+    .research-container {
+        width: 86%;
+    }
+
+    .research-wrapper {
+        padding-top: 30px;
+    }
+
+    .paper p {
+        font-size: 13.5px;
+    }
+}
+
 /* --- ART PAGE SPECIFIC STYLES --- */
 
 .art-page {
