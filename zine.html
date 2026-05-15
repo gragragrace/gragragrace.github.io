@@ -44,6 +44,7 @@
         }
 
         .zine-state.flip-back {
+            display: flex;
             animation: zineAppearBack 0.38s ease-out forwards;
         }
 
@@ -200,95 +201,95 @@
 
             <!-- STATE 0: Front cover (page 1, solo) -->
             <div class="zine-state cover-state active" id="state-0">
-                <div class="zine-leaf"><img src="images/zine/1.jpeg" alt="Cover"></div>
+                <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/1.jpeg" alt="Cover"></div>
                 <p class="zine-hint">click to open</p>
             </div>
 
             <!-- STATE 1: Spread 1 (pages 2–3) -->
             <div class="zine-state spread-state" id="state-1">
                 <div class="zine-spread">
-                    <div class="zine-leaf"><img src="images/zine/2.jpeg" alt="Page 2"></div>
-                    <div class="zine-leaf"><img src="images/zine/3.jpeg" alt="Page 3"></div>
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/2.jpeg" alt="Page 2"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/3.jpeg" alt="Page 3"></div>
                 </div>
-                <p class="zine-hint">click to continue</p>
+                <p class="zine-hint">← back · forward →</p>
             </div>
 
             <!-- STATE 2: Spread 2 (pages 4–5) -->
             <div class="zine-state spread-state" id="state-2">
                 <div class="zine-spread">
-                    <div class="zine-leaf"><img src="images/zine/4.jpeg" alt="Page 4"></div>
-                    <div class="zine-leaf"><img src="images/zine/5.jpeg" alt="Page 5"></div>
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/4.jpeg" alt="Page 4"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/5.jpeg" alt="Page 5"></div>
                 </div>
-                <p class="zine-hint">click to continue</p>
+                <p class="zine-hint">← back · forward →</p>
             </div>
 
             <!-- STATE 3: Spread 3 (pages 5:6–6) -->
             <div class="zine-state spread-state" id="state-3">
                 <div class="zine-spread">
-                    <div class="zine-leaf"><img src="images/zine/5%3A6.png" alt="Page 5:6"></div>
-                    <div class="zine-leaf"><img src="images/zine/6.jpeg" alt="Page 6"></div>
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/5%3A6.png" alt="Page 5:6"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/6.jpeg" alt="Page 6"></div>
                 </div>
-                <p class="zine-hint">click to continue</p>
+                <p class="zine-hint">← back · forward →</p>
             </div>
 
             <!-- STATE 4: Spread 4 (pages 7–8) -->
             <div class="zine-state spread-state" id="state-4">
                 <div class="zine-spread">
-                    <div class="zine-leaf"><img src="images/zine/7.jpeg" alt="Page 7"></div>
-                    <div class="zine-leaf"><img src="images/zine/8.jpeg" alt="Page 8"></div>
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/7.jpeg" alt="Page 7"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/8.jpeg" alt="Page 8"></div>
                 </div>
-                <p class="zine-hint">click to continue</p>
+                <p class="zine-hint">← back · forward →</p>
             </div>
 
             <!-- STATE 5: Spread 5 (pages 9–10) -->
             <div class="zine-state spread-state" id="state-5">
                 <div class="zine-spread">
-                    <div class="zine-leaf"><img src="images/zine/9.jpeg" alt="Page 9"></div>
-                    <div class="zine-leaf"><img src="images/zine/10.jpeg" alt="Page 10"></div>
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/9.jpeg" alt="Page 9"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/10.jpeg" alt="Page 10"></div>
                 </div>
-                <p class="zine-hint">click to continue</p>
+                <p class="zine-hint">← back · forward →</p>
             </div>
 
             <!-- STATE 6: Spread 6 (pages 11–12) -->
             <div class="zine-state spread-state" id="state-6">
                 <div class="zine-spread">
-                    <div class="zine-leaf"><img src="images/zine/11.jpeg" alt="Page 11"></div>
-                    <div class="zine-leaf"><img src="images/zine/12.jpeg" alt="Page 12"></div>
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/11.jpeg" alt="Page 11"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/12.jpeg" alt="Page 12"></div>
                 </div>
-                <p class="zine-hint">click to continue</p>
+                <p class="zine-hint">← back · forward →</p>
             </div>
 
             <!-- STATE 7: Spread 7 (pages 13–14) -->
             <div class="zine-state spread-state" id="state-7">
                 <div class="zine-spread">
-                    <div class="zine-leaf"><img src="images/zine/13.jpeg" alt="Page 13"></div>
-                    <div class="zine-leaf"><img src="images/zine/14.jpeg" alt="Page 14"></div>
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/13.jpeg" alt="Page 13"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/14.jpeg" alt="Page 14"></div>
                 </div>
-                <p class="zine-hint">click to continue</p>
+                <p class="zine-hint">← back · forward →</p>
             </div>
 
             <!-- STATE 8: Spread 8 (pages 15–16) -->
             <div class="zine-state spread-state" id="state-8">
                 <div class="zine-spread">
-                    <div class="zine-leaf"><img src="images/zine/15.jpeg" alt="Page 15"></div>
-                    <div class="zine-leaf"><img src="images/zine/16.jpeg" alt="Page 16"></div>
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/15.jpeg" alt="Page 15"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/16.jpeg" alt="Page 16"></div>
                 </div>
-                <p class="zine-hint">click to continue</p>
+                <p class="zine-hint">← back · forward →</p>
             </div>
 
             <!-- STATE 9: Spread 9 (pages 17–18) -->
             <div class="zine-state spread-state" id="state-9">
                 <div class="zine-spread">
-                    <div class="zine-leaf"><img src="images/zine/17.jpeg" alt="Page 17"></div>
-                    <div class="zine-leaf"><img src="images/zine/18.jpeg" alt="Page 18"></div>
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/17.jpeg" alt="Page 17"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/18.jpeg" alt="Page 18"></div>
                 </div>
-                <p class="zine-hint">click to continue</p>
+                <p class="zine-hint">← back · forward →</p>
             </div>
 
             <!-- STATE 10: Back cover (page 19, solo) -->
             <div class="zine-state cover-state" id="state-10">
-                <div class="zine-leaf"><img src="images/zine/19.jpeg" alt="Back Cover"></div>
-                <p class="zine-hint">click to close</p>
+                <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/19.jpeg" alt="Back Cover"></div>
+                <p class="zine-hint">click to go back</p>
             </div>
 
         </div>
@@ -313,27 +314,24 @@
         let currentState = 0;
         const totalStates = 11;
 
-        document.getElementById('zineViewer').addEventListener('click', function () {
+        function zineGo(dir) {
+            const next = currentState + dir;
+            if (next < 0 || next >= totalStates) return;
+
             const prevEl = document.getElementById(`state-${currentState}`);
             prevEl.classList.remove('active', 'flip-back');
             prevEl.style.display = 'none';
+            document.querySelector(`.zine-dot[data-index="${currentState}"]`).classList.remove('active');
 
-            const prevDot = document.querySelector(`.zine-dot[data-index="${currentState}"]`);
-            prevDot.classList.remove('active');
-
-            const isGoingBack = false; // Always go forward; change if you add back navigation
-            currentState = (currentState + 1) % totalStates;
+            currentState = next;
 
             const nextEl = document.getElementById(`state-${currentState}`);
             nextEl.style.display = '';
             nextEl.classList.remove('active', 'flip-back');
-            // Force reflow so animation restarts
-            void nextEl.offsetWidth;
-            nextEl.classList.add('active');
-
-            const nextDot = document.querySelector(`.zine-dot[data-index="${currentState}"]`);
-            nextDot.classList.add('active');
-        });
+            void nextEl.offsetWidth; // force reflow so animation restarts
+            nextEl.classList.add(dir > 0 ? 'active' : 'flip-back');
+            document.querySelector(`.zine-dot[data-index="${currentState}"]`).classList.add('active');
+        }
     </script>
 
 </body>
