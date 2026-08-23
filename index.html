@@ -3,100 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grace Wang's Personal Website</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>Grace Wang | G.W.</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Sticky Top Navigation -->
-    <div class="top-nav">
-        <nav>
-            <ul>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">G.W.</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
                 <li><a href="research.html">Research</a></li>
-                <li><a href="art.html">Art</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <!-- <li><a href="blog.html">Blog</a></li> -->
+                <li><a href="zine.html">Art</a></li>
             </ul>
-        </nav>
-    </div>
+        </div>
+    </nav>
 
-    <!-- Introduction Section -->
-    <div class="main-body container">
-        <div class="left-column">
-            <img src="images/artworks/SelfPortrait.png" alt="Grace Wang">
+    <main class="centering-wrapper">
+        <div class="container">
+            <header id="home" class="hero-section">
+                <div class="image-column">
+                    <img src="images/artworks/SelfPortrait.png" alt="Grace Wang Illustration" class="profile-img">
+                </div>
+                
+                <div class="content-column">
+                    <h1>Grace Wang</h1>
+                    <div class="bio">
+                        <p>Hi! I'm a <strong>1st year Ph.D. student in Computer Science at Stanford University</strong>, fortunate to be working with Professors <a href="https://www.landay.org/">James Landay</a> and <a href="https://www.gewang.com//">Ge Wang</a>. I explore the intersections of Human-Centered AI, Art, and creativity.</p>
+                        
+                        <p>Previously, I studied <strong>Computer Science</strong> and <strong>Art, Theory, Practice (Fine Arts)</strong> at Northwestern University, where I've had the pleasure of working with <a href="https://eecs.northwestern.edu/~hq/">Haoqi Zhang</a>, <a href="https://www.mjskay.com/">Matthew Kay</a>, <a href="https://www.durilong.com/">Duri Long</a>, and <a href="https://sites.google.com/view/magerko/home">Brian Magerko</a>. I'm trained in HCI systems design research in the <a href="https://dtr.northwestern.edu/">DTR program</a>.</p>
+                        
+                        <p>I spend my spare time drawing, performing with my choir, and <a href="#">exploring ways to enjoy life creatively</a>. My special skills include skateboarding, making zines, and socializing with local bar owners for free sake in Japan.</p>
+                    </div>
+                    <p class="email-bottom">Gracewng@stanford.edu</p>
+                </div>
+            </header>
         </div>
-        <div class="right-column">
-            <h1>Grace Wang</h1>
-            <h2>Creative Technologist & Researcher</h2>
-            <p>Hi! I'm a forth-year undergraduate student at Northwestern University majoring in <b>Computer Science</b> and <b>Art, Theory, Practice</b>.</p>
-            <p>I explore the intersections of HCI, art, and creativity. Over the past years, I've had the pleasure of working on <a href="research.html">projects</a> with 
-            <a href="https://eecs.northwestern.edu/~hq/">Haoqi Zhang</a>, <a href="https://www.durilong.com/">Duri Long</a>, as well as with <a href="https://www.mjskay.com/">Matthew Kay</a> in the <a href="https://mucollective.northwestern.edu/">MuCollective</a>, ranging from interactive AI exhibits to research in AI literacy, and design innovation for learning experiences.</p>
-            <p>In my spare time, I spend my time <a href="art.html">drawing, painting, and exploring ways to enjoy life creatively</a>. I also enjoy skateboarding, playing squash, window-shop houses and learning japanese.</p>
-        </div>
-    </div>
+    </main>
 
-    <!-- Research Overview Section -->
-    <section class="research-overview container">
-        <h2>Research Projects</h2>
-        <div class="project-container">
-            <div class="project">
-                <div class="project-image">
-                    <img src="images/research/OSADECover.png" alt="OSADE">
-                </div>
-                <div class="project-description">
-                    <h3>OSADE <a href="osade.html" class="work-title-link"></a></h3>
-                    <p>OSADE is a mentorship application to support diagnosing the underlying self-regulatory skill gaps of students' struggles and formulating tailored strategies, progressing coaching beyond cognitive strategies.</p>
-                    <!-- <a href="osade.html" class="see-more-button">See more</a> -->
-                </div>
-            </div>
-            <!-- Knowledge Net -->
-            <div class="project">
-                <div class="project-image">
-                    <img src="images/research/KNTable.png" alt="KN">
-                </div>
-                <div class="project-description">
-                    <h3>Knowledge Net <a href="kn.html" class="work-title-link"></a></h3>
-                    <p>Knowledge Net is a <b>collaborative, tangible tabletop museum exhibit</b> where users construct characters by building <b>semantic networks</b>, aimed at teaching middle schoolers about knowledge representations in semantic networks;</p>
-                    <!-- <a href="kn.html" class="see-more-button">See more</a> -->
-                </div>
-            </div>
-            <!-- Kernel Quest -->
-            <div class="project">
-                <div class="project-image">
-                    <img src="images/research/KernelQuestCover.png" alt="KQ">
-                </div>
-                <div class="project-description">
-                    <h3>Kernel Quest <a href="kq.html" class="work-title-link"></a></h3>
-                    <p>Kernel Quest is a hands-on, interactive activity that <b>teaches student how CNNs use kernels to detect visual features</b>. Students simulate a CNN by sliding the a plastic “kernel” between polarizer film sheets, revealing parts of a cartoon monster, noting observed features (e.g., eyes, wings) to guess the monster's identity.</p>
-                    <!-- <a href="kq.html" class="see-more-button">See more</a> -->
-                </div>
-            </div>
-            <!-- LIVE ELEX -->
-            <div class="project">
-                <div class="project-image">
-                    <img src="images/research/LiveElexCover.png" alt="LIVEELEX">
-                </div>
-                <div class="project-description">
-                    <h3>LIVE-ELEX<a href="liveelex.html" class="work-title-link"></a></h3>
-                    <p>Live Elex is a <b>live election dashboard for the 2024 Presidential election</b> that fosters trust by 
-                        helping voters understand vote counting procedures, set expectations for upcoming processes and 
-                        uncertainties, and distinguishing trends that are and aren't meaningful about the winner or malfeasance.</p>
-                    <!-- <a href="kq.html" class="see-more-button">See more</a> -->
-                </div>
-            </div>
-            <!-- LLM-Qual -->
-            <div class="project">
-                <div class="project-image">
-                    <img src="images/research/LLMQualCover.png" alt="LLMQUAL">
-                </div>
-                <div class="project-description">
-                    <h3>LLM-Qual <a href="llmqual.html" class="work-title-link"></a></h3>
-                    <p>LLM-Qual is a <b>theory-informed computational method to systematically evaluate inductive coding results</b> by 
-                        computationally transforming each coder's inductive coding results into a <b>Code Space</b>. We proporse 
-                        and operationalize 4 computational metrics for assessing Code Spaces: Coverage, Density, Novelty, and Divergence.</p>
-                    <!-- <a href="kq.html" class="see-more-button">See more</a> -->
-                </div>
-            </div>
-        </div>
-    </section>
 </body>
 </html>

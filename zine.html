@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zine | Grace Wang</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* ---- ZINE PAGE LAYOUT ---- */
+        .zine-main {
+            min-height: calc(100vh - var(--header-height));
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 24px 16px;
+            user-select: none;
+        }
+
+        /* ---- VIEWER WRAPPER ---- */
+        .zine-viewer {
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* ---- STATE MANAGEMENT ---- */
+        .zine-state {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .zine-state.active {
+            display: flex;
+            animation: zineAppear 0.38s ease-out forwards;
+        }
+
+        .zine-state.flip-back {
+            display: flex;
+            animation: zineAppearBack 0.38s ease-out forwards;
+        }
+
+        @keyframes zineAppear {
+            from {
+                opacity: 0;
+                transform: perspective(900px) rotateY(-8deg) scale(0.975);
+            }
+            to {
+                opacity: 1;
+                transform: perspective(900px) rotateY(0deg) scale(1);
+            }
+        }
+
+        @keyframes zineAppearBack {
+            from {
+                opacity: 0;
+                transform: perspective(900px) rotateY(8deg) scale(0.975);
+            }
+            to {
+                opacity: 1;
+                transform: perspective(900px) rotateY(0deg) scale(1);
+            }
+        }
+
+        /* ---- INDIVIDUAL PAGE LEAF ---- */
+        .zine-leaf {
+            background: #ffffff;
+            aspect-ratio: 550 / 850;
+            flex-shrink: 0;
+            /* Mobile default: width-based from spread container */
+            width: 50%;
+        }
+
+        /* ---- COVER STATE ---- */
+        .cover-state .zine-leaf {
+            box-shadow:
+                3px 4px 12px rgba(0, 0, 0, 0.14),
+                1px 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ---- SPREAD STATE ---- */
+        .zine-spread {
+            display: flex;
+            position: relative;
+            box-shadow:
+                0 6px 24px rgba(0, 0, 0, 0.14),
+                0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Central crease / spine shadow */
+        .zine-spread::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            transform: translateX(-50%);
+            background: linear-gradient(to right,
+                rgba(0, 0, 0, 0.09) 0%,
+                rgba(0, 0, 0, 0.03) 40%,
+                rgba(0, 0, 0, 0.03) 60%,
+                rgba(0, 0, 0, 0.09) 100%
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ---- PAGE IMAGES ---- */
+        .zine-leaf {
+            overflow: hidden;
+        }
+
+        .zine-leaf img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* ---- HINT TEXT ---- */
+        .zine-hint {
+            font-size: 12px;
+            color: var(--text-gray);
+            letter-spacing: 0.4px;
+            font-weight: 400;
+        }
+
+        /* ---- PROGRESS DOTS ---- */
+        .zine-progress {
+            display: flex;
+            gap: 7px;
+            align-items: center;
+        }
+
+        .zine-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: #d0d0d0;
+            transition: background 0.25s ease;
+        }
+
+        .zine-dot.active {
+            background: #000;
+        }
+
+        /* ---- MOBILE SIZING ---- */
+        /* Spread spans full width minus 32px margin (16px each side) */
+        .zine-spread,
+        .cover-state {
+            /* Cover single page: half of the spread width */
+        }
+
+        /* Mobile: spread is 100vw - 32px, each leaf is 50% of that */
+        @media (max-width: 950px) {
+            .zine-spread {
+                width: calc(100vw - 32px);
+            }
+
+            .cover-state .zine-leaf {
+                /* Single cover page = same width as one spread page */
+                width: calc((100vw - 32px) / 2);
+            }
+        }
+
+        /* ---- DESKTOP SIZING (height-based, ~50% vertical space for spread) ---- */
+        @media (min-width: 951px) {
+            .zine-leaf {
+                /* Use height to control size; aspect-ratio handles width automatically */
+                width: auto;
+                height: calc((100vh - var(--header-height) - 100px) * 1.0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">G.W.</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="zine.html" class="active">Art</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="zine-main">
+        <div class="zine-viewer" id="zineViewer">
+
+            <!-- STATE 0: Front cover (page 1, solo) -->
+            <div class="zine-state cover-state active" id="state-0">
+                <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/1.jpeg" alt="Cover"></div>
+                <p class="zine-hint">click to open</p>
+            </div>
+
+            <!-- STATE 1: Spread 1 (pages 2–3) -->
+            <div class="zine-state spread-state" id="state-1">
+                <div class="zine-spread">
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/2.jpeg" alt="Page 2"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/3.jpeg" alt="Page 3"></div>
+                </div>
+                <p class="zine-hint">← back · forward →</p>
+            </div>
+
+            <!-- STATE 2: Spread 2 (pages 4–5) -->
+            <div class="zine-state spread-state" id="state-2">
+                <div class="zine-spread">
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/4.jpeg" alt="Page 4"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/5.jpeg" alt="Page 5"></div>
+                </div>
+                <p class="zine-hint">← back · forward →</p>
+            </div>
+
+            <!-- STATE 3: Spread 3 (pages 5:6–6) -->
+            <div class="zine-state spread-state" id="state-3">
+                <div class="zine-spread">
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/5%3A6.png" alt="Page 5:6"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/6.jpeg" alt="Page 6"></div>
+                </div>
+                <p class="zine-hint">← back · forward →</p>
+            </div>
+
+            <!-- STATE 4: Spread 4 (pages 7–8) -->
+            <div class="zine-state spread-state" id="state-4">
+                <div class="zine-spread">
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/7.jpeg" alt="Page 7"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/8.jpeg" alt="Page 8"></div>
+                </div>
+                <p class="zine-hint">← back · forward →</p>
+            </div>
+
+            <!-- STATE 5: Spread 5 (pages 9–10) -->
+            <div class="zine-state spread-state" id="state-5">
+                <div class="zine-spread">
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/9.jpeg" alt="Page 9"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/10.jpeg" alt="Page 10"></div>
+                </div>
+                <p class="zine-hint">← back · forward →</p>
+            </div>
+
+            <!-- STATE 6: Spread 6 (pages 11–12) -->
+            <div class="zine-state spread-state" id="state-6">
+                <div class="zine-spread">
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/11.jpeg" alt="Page 11"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/12.jpeg" alt="Page 12"></div>
+                </div>
+                <p class="zine-hint">← back · forward →</p>
+            </div>
+
+            <!-- STATE 7: Spread 7 (pages 13–14) -->
+            <div class="zine-state spread-state" id="state-7">
+                <div class="zine-spread">
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/13.jpeg" alt="Page 13"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/14.jpeg" alt="Page 14"></div>
+                </div>
+                <p class="zine-hint">← back · forward →</p>
+            </div>
+
+            <!-- STATE 8: Spread 8 (pages 15–16) -->
+            <div class="zine-state spread-state" id="state-8">
+                <div class="zine-spread">
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/15.jpeg" alt="Page 15"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/16.jpeg" alt="Page 16"></div>
+                </div>
+                <p class="zine-hint">← back · forward →</p>
+            </div>
+
+            <!-- STATE 9: Spread 9 (pages 17–18) -->
+            <div class="zine-state spread-state" id="state-9">
+                <div class="zine-spread">
+                    <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/17.jpeg" alt="Page 17"></div>
+                    <div class="zine-leaf" onclick="zineGo(1)"><img src="images/zine/18.jpeg" alt="Page 18"></div>
+                </div>
+                <p class="zine-hint">← back · forward →</p>
+            </div>
+
+            <!-- STATE 10: Back cover (page 19, solo) -->
+            <div class="zine-state cover-state" id="state-10">
+                <div class="zine-leaf" onclick="zineGo(-1)"><img src="images/zine/19.jpeg" alt="Back Cover"></div>
+                <p class="zine-hint">click to go back</p>
+            </div>
+
+        </div>
+
+        <!-- Progress dots (outside viewer so they don't trigger flip) -->
+        <div class="zine-progress" id="zineProgress">
+            <div class="zine-dot active" data-index="0"></div>
+            <div class="zine-dot" data-index="1"></div>
+            <div class="zine-dot" data-index="2"></div>
+            <div class="zine-dot" data-index="3"></div>
+            <div class="zine-dot" data-index="4"></div>
+            <div class="zine-dot" data-index="5"></div>
+            <div class="zine-dot" data-index="6"></div>
+            <div class="zine-dot" data-index="7"></div>
+            <div class="zine-dot" data-index="8"></div>
+            <div class="zine-dot" data-index="9"></div>
+            <div class="zine-dot" data-index="10"></div>
+        </div>
+    </main>
+
+    <script>
+        let currentState = 0;
+        const totalStates = 11;
+
+        function zineGo(dir) {
+            const next = currentState + dir;
+            if (next < 0 || next >= totalStates) return;
+
+            const prevEl = document.getElementById(`state-${currentState}`);
+            prevEl.classList.remove('active', 'flip-back');
+            prevEl.style.display = 'none';
+            document.querySelector(`.zine-dot[data-index="${currentState}"]`).classList.remove('active');
+
+            currentState = next;
+
+            const nextEl = document.getElementById(`state-${currentState}`);
+            nextEl.style.display = '';
+            nextEl.classList.remove('active', 'flip-back');
+            void nextEl.offsetWidth; // force reflow so animation restarts
+            nextEl.classList.add(dir > 0 ? 'active' : 'flip-back');
+            document.querySelector(`.zine-dot[data-index="${currentState}"]`).classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>
