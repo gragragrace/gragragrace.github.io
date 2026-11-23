@@ -1,0 +1,503 @@
+:root {
+    --bg-white: #ffffff;
+    --text-black: #000000;
+    --text-gray: #888888;
+    --max-width: 1200px;
+    --header-height: 60px; /* Narrower vertical space */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    background-color: var(--bg-white);
+    color: var(--text-black);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* HEADER: FULL WIDTH LINE, 80% TEXT CONTENT */
+.navbar {
+    width: 100%;
+    height: var(--header-height);
+    border-bottom: 1px solid #000000;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-content {
+    width: 80%; /* Text spans 80% */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 100;
+    color: #000;
+    letter-spacing: -0.5px; /* Tightened horizontal spacing */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-size: 15px; /* 30% smaller than previous 17px */
+    letter-spacing: -0.3px;
+    font-weight: 400;
+    text-transform: none;
+}
+
+.nav-links a.active {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* VERTICAL CENTERING */
+.centering-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - var(--header-height));
+}
+
+.container {
+    width: 80%; /* Matches header text width */
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.image-column {
+    flex: 0 0 50%;
+}
+
+.profile-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.content-column {
+    flex: 1;
+}
+
+h1 {
+    font-size: 64px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+}
+
+.bio p {
+    font-size: 17px;
+    margin-bottom: 12px;
+    margin-right: 15px;
+    line-height: 1.3; /* Compressed line spacing (0.5 of previous 2.2 range) */
+    color: #000;
+}
+
+.bio a {
+    color: var(--text-black);
+    text-decoration: underline;
+    
+    /* 1. Use a high-contrast Hex code */
+    text-decoration-color: #aed3ff; /* Pure blue, or use #2b6ca3 for a professional blue */
+    
+    /* 2. Increase thickness so the color is visible */
+    text-decoration-thickness: 2px; 
+    
+    /* 3. Ensure the line doesn't skip over descending letters (like g, j, p, q, y) */
+    /* This makes the line a solid, unbroken blue stroke */
+    text-decoration-skip-ink: none; 
+
+    /* 4. Pull it away from the text slightly to make it pop */
+    text-underline-offset: 3px;
+}
+
+.email-bottom {
+    margin-top: 20px;
+    color: var(--text-gray);
+    font-size: 16px;
+}
+
+/* MOBILE RESPONSIVE REFINEMENTS */
+@media (max-width: 950px) {
+    .logo {
+    font-size: 19px;
+    font-weight: 100;
+    color: #000;
+    letter-spacing: -0.5px; /* Tightened horizontal spacing */
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+    /* Header adjustments */
+    .nav-content {
+        width: 88%; /* Give more edge-to-edge room for the nav on mobile */
+    }
+    
+    .nav-links {
+        gap: 10.5px; /* Reduce spacing between tabs so they don't look spread out */
+    }
+
+    .nav-links a {
+    text-decoration: none;
+    color: #000;
+    font-size: 14px; /* 30% smaller than previous 17px */
+    letter-spacing: -0.2px;
+    font-weight: 300;
+    text-transform: none;
+}
+
+    /* Vertical centering adjustment */
+    .centering-wrapper {
+        justify-content: flex-start; /* Don't force center on mobile to allow for scrolling */
+        padding-top: 30px; /* Space between header line and the image */
+        min-height: auto;
+    }
+
+    .container {
+        width: 86%; /* Reduce right margin/centering the content block */
+    }
+    
+    .hero-section {
+        flex-direction: column;
+        gap: 20px; /* Gap between image and "Grace Wang" text */
+    }
+
+    /* Image Scaling */
+    .image-column {
+        width: 70%; /* Makes image smaller on phone (was 100%) */
+        margin: 0 auto; /* Keeps image centered */
+    }
+
+    /* Text Proportion Adjustments */
+    h1 {
+        font-size: 22px; /* 50% smaller than desktop 64px */
+        text-align: left;
+        margin-bottom: 10px;
+        letter-spacing: 0.0px;
+    }
+
+    .bio p {
+        font-size: 14.5px; /* 10% smaller than desktop 17px */
+        margin-right: 0; /* Fixes the "right margin too big" issue */
+        text-align: left;
+        line-height: 1.1;
+    }
+
+    .email-bottom {
+        font-size: 14.2px;
+        margin-top: 15px;
+    }
+}
+
+/* --- RESEARCH PAGE SPECIFIC STYLES --- */
+
+.research-wrapper {
+    justify-content: flex-start;
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+
+.research-container {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.research-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.paper {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.paper p {
+    font-size: 15px;
+    line-height: 1.35;
+    color: #000;
+    margin: 0;
+}
+
+.authors {
+    color: #888 !important;
+}
+
+.paper a {
+    color: var(--text-black);
+    text-decoration: underline;
+    text-decoration-color: #aed3ff;
+    text-decoration-thickness: 2px;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 3px;
+}
+
+@media (max-width: 950px) {
+    .research-container {
+        width: 100%;
+        padding: 0 7%;
+    }
+
+    .research-wrapper {
+        padding-top: 30px;
+    }
+
+    .research-list {
+        gap: 10px;
+    }
+
+    .paper p {
+        font-size: 13.5px;
+        line-height: 1.2;
+    }
+
+    .paper {
+        gap: 1px;
+    }
+
+    .paper a {
+        color: var(--text-black) !important;
+        text-decoration: underline !important;
+        text-decoration-color: #aed3ff !important;
+        text-decoration-thickness: 2px !important;
+        text-decoration-skip-ink: none !important;
+        text-underline-offset: 3px !important;
+    }
+}
+
+/* --- ART PAGE SPECIFIC STYLES --- */
+
+.art-page {
+    width: 70% !important; /* Matches homepage content width */
+    max-width: var(--max-width);
+    margin: 0 auto; /* Centers the 80% container */
+    text-align: left;
+    padding-bottom: 100px;
+}
+
+/* 1. Full-Width Hero */
+.art-hero {
+    width: 100%;
+    margin-bottom: 60px;
+}
+
+.art-hero img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 2. Artist Statement Header (Title + Circle) */
+.statement-header {
+    display: flex;
+    justify-content: flex-start; /* Keeps things from drifting right */
+    align-items: center;
+    gap: 60px; /* Gap between title and circle */
+    margin-bottom: 80px;
+}
+
+.statement-title {
+    flex: 0 0 20vw; /* Keeps title column consistent with paragraphs */
+}
+
+.statement-title h2 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.statement-title .subtitle {
+    color: var(--text-gray);
+    font-size: 16px;
+}
+
+.statement-circle-img img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* 3. Text Blocks & Width Constraints */
+.statement-text{
+    width: 25vw; /* The exact constraint you requested */
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.project-text {
+    width: 20vw; /* The exact constraint you requested */
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.statement-text p, .project-text p, .arrow-paragraph p {
+    font-size: 17px;
+    line-height: 1.25;
+    margin-bottom: 30px;
+    letter-spacing: -0.1px;
+}
+
+/* 4. Question Row & Project Row Layouts */
+.question-row, .project-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 60px; /* Consistent horizontal gap across the page */
+    margin-top: 40px;
+}
+
+.arrow-paragraph {
+    flex: 0 0 20vw; /* Matches the vertical line of paragraphs above */
+}
+
+.question-quote-container{
+    flex: 1; /* Occupies the remaining space of the 80vw container */
+    max-width: 30vw;
+}
+
+.question-quote-container blockquote {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* --- IMPROVED PROJECT GALLERY GRID --- */
+
+.project-gallery {
+    flex: 1; /* Takes up the space to the right of your 20vw text */
+}
+
+.gallery-grid {
+    display: flex;
+    gap: 7.5px; /* The gutter between the 70% and 30% columns */
+    align-items: stretch; /* Forces both columns to have the same total height */
+}
+/* Main image takes 70% */
+.gallery-main {
+    flex: 0 0 80%; 
+}
+
+.gallery-main img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery-side {
+    flex: 0 0 calc(20% - 7.5px); /* Adjusts for the gap */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Space between the two stacked images */
+}
+
+.gallery-side img {
+    width: 100%;
+    /* This forces each side image to take exactly half the height of the column */
+    height: calc(50% - 7.5px); 
+    object-fit: cover; /* Prevents stretching if the photos have different ratios */
+    display: block;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.caption {
+    font-size: 13px;
+    color: var(--text-gray);
+    font-style: italic;
+    text-align: left;
+}
+
+/* --- MOBILE ART ADJUSTMENTS --- */
+@media (max-width: 950px) {
+    .art-page {
+        width: 86% !important;
+    }
+
+    .statement-header, .question-row, .project-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .statement-text, .project-text, .arrow-paragraph, .statement-title {
+        width: 100%;
+        flex: none;
+    }
+
+    .statement-circle-img img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+/* --- STACKED IMAGE SECTION --- */
+
+.image-stack-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Vertical space between the two images */
+    margin-top: 80px;
+    margin-bottom: 100px;
+}
+
+/* Container for the 80% width image */
+.img-wrapper-80 {
+    width: 80%;
+    /* Left-aligned by default, but you can use margin: 0 auto; to center it within the container */
+    margin-right: auto; 
+}
+
+/* Container for the 100% width image */
+.img-wrapper-100 {
+    width: 100%;
+}
+
+.image-stack-row img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 950px) {
+    .img-wrapper-80 {
+        width: 100%; /* Scale up to full width on mobile for better visibility */
+    }
+    .image-stack-row {
+        gap: 30px;
+        margin-top: 40px;
+    }
+}
